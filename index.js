@@ -26,7 +26,7 @@ var App = new function () {
 };
 
 var Game = function (board) {
-  this.MAX_PLAYERS = 4;
+  this.MAX_PLAYERS = 2;
 
   this.token = Math.floor(Math.random()*9000) + 1000;
 
