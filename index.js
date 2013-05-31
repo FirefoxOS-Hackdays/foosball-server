@@ -23,7 +23,6 @@ var App = new function () {
     games[token].finish();
     games[token] = null;
   };
-
 };
 
 var Game = function (board) {
@@ -35,10 +34,10 @@ var Game = function (board) {
   console.log(this.players);
   this.board = board;
 
-  this.sendToBoard(JSON.stringify({
+  this.sendToBoard({
     action: 'game-created',
     token: this.token
-  }));
+  });
 };
 
 Game.prototype.addPlayer = function (ws) {
@@ -55,12 +54,12 @@ Game.prototype.addPlayer = function (ws) {
 
   this.players[playerNum] = ws;
 
-  var message  = JSON.stringify({
+  var message  = {
     action: 'player-joined',
     playerNum: playerNum
-  });
+  };
 
-  ws.send(message);
+  ws.send(JSON.stringify(message));
   this.sendToBoard(message);
 
   return playerNum;
@@ -69,10 +68,10 @@ Game.prototype.addPlayer = function (ws) {
 Game.prototype.removePlayer = function (playerNum) {
   this.players[playerNum] = null;
 
-  this.sendToBoard(JSON.stringify({
+  this.sendToBoard({
     action: 'player-left',
     playerNum: playerNum
-  }));
+  });
 };
 
 Game.prototype.sendToBoard = function (message) {
