@@ -106,14 +106,10 @@ wss.on('connection', function(ws) {
       if (message.action === 'join-game') {
         game = App.findGame(message.token);
         playerNum = game.addPlayer(ws);
-      }
-
-      if (message.action === 'create-game') {
+      } else if (message.action === 'create-game') {
         game = App.createGame(ws);
         board = true;
-      }
-
-      if (message.action === 'slide' || message.action === 'shoot') {
+      } else {
         message.playerNum = playerNum;
         game.sendToBoard(message);
       }
