@@ -44,7 +44,7 @@ var Game = function (board) {
 Game.prototype.addPlayer = function (ws) {
   var playerNum = null;
   this.players.forEach(function (el, i) {
-    if (!playerNum && !el) {
+    if (playerNum === null && !el) {
       playerNum = i;
     }
   });
