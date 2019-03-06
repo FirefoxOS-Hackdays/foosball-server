@@ -1,6 +1,6 @@
 {
   "name": "foosball-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Node.js server which controls the WebSocket configuration of the foosball game",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,6 @@
   "readmeFilename": "README.md",
   "gitHead": "4994f50c3448301ab0f10f60c23951a88ae74348",
   "dependencies": {
-    "ws": "~0.4.25"
+    "ws": ">=1.1.1"
   }
 }
